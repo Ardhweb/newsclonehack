@@ -3,7 +3,7 @@ from django.urls import reverse
 # Create your views here.
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, ListView
 from links.models import LinkU
 
 def home(request):
@@ -38,6 +38,10 @@ class NewLinkView(CreateView):
 class LinkDetailView(DetailView):
     model = LinkU
     template_name =  "link_detail.html"
+
+class LinkListView(ListView):
+    model = LinkU
+    template_name = "link_lists.html"
 
 
     

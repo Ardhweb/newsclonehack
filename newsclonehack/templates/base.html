@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+</head>
+<body>
+    {% block content %}
+    {% comment %} <ul>
+        {% if request.user.is_authenticated %}
+        <li><a >{{user.username}}</a><li>
+        <li><a href="{% url "logout" %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url "login" %}">Login</a></li>
+        <li><a href="{% url "user_registration"%}">Register Account</a>
+       </li>
+        {% endif %}
+       </ul> {% endcomment %}
+       <ul>
+        {% if request.user.is_authenticated %}
+        <li>{{user.username}}<li>
+        <li><a href="{% url "logout" %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url "login" %}">Login</a></li>
+        <li><a href="{% url "register"%}">Register Account</a>
+       </li>
+        {% endif %}
+       </ul>
+    {% endblock content %}
+
+
+    
+</body>
+</html>

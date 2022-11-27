@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+{% block header %}
+
+
+<ul>{% if request.user.is_authenticated %}
+    <strong>{{user.username}}</strong>
+    <li><a href="">Logout</a></li>
+    <li><a href="{% url "newlink" %}">New Link</a></li>
+    {% else %}
+    <li><a href="">Login</a></li>
+    {% comment %} <li><a href="{% url "signup"%}">Register Account</a></li> {% endcomment %}
+    <li><a href="{% url "register"%}">Register Account</a></li>
+    {% endif %}
+</ul>
+{% endblock header %}
+
+
+
+
+
+
+{% endblock content %}
+
+
+
+
